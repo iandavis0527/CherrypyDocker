@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm_build_all",
+      "dependsOn": ["npm_build_common", "npm_build_export", "npm_build_main"]
+    },
+    {
+      "type": "npm",
+      "script": "install",
+      "path": "oswald_reading_span/frontend/common/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm_install_common",
+      "detail": "npm install"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "oswald_reading_span/frontend/common/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm_build_common",
+      "detail": "npm run compile && npm run copy-css",
+      "dependsOn": ["npm_install_common"]
+    },
+
+    {
+      "type": "npm",
+      "script": "install",
+      "path": "oswald_reading_span/frontend/main/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm_install_main",
+      "detail": "npm install"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "oswald_reading_span/frontend/main/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm_build_main",
+      "detail": "webpack --mode production --progress --config webpack.config.js",
+      "dependsOn": ["npm_install_main"]
+    },
+    {
+      "type": "npm",
+      "script": "install",
+      "path": "oswald_reading_span/frontend/export/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm_install_export",
+      "detail": "npm install"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "oswald_reading_span/frontend/export/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm_build_export",
+      "detail": "react-scripts build",
+      "dependsOn": ["npm_install_export"]
+    }
+  ]
+}

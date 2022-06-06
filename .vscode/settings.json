@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/build": true,
+    "**/oswald_reading_span.egg-info": true,
+    "Pipfile.lock": true,
+    "**/__pycache__": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true
+  },
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.defaultInterpreterPath": "/Users/iandavis/.local/share/virtualenvs/OswaldReadingSpan-MK8j7C7v-python",
+  "jest.jestCommandLine": "npm run jest",
+  "npm.includeDirectories": ["frontend/"],
+  "npm.useRootDirectory": false
+}
