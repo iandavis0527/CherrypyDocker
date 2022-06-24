@@ -39,6 +39,7 @@ RUN apt-get install --assume-yes \
     mysql-client-core-5.7 \
     openssh-client \
     git \
+    htpdate \
     && apt-get clean
 
 RUN wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
