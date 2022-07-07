@@ -3,9 +3,6 @@ FROM ubuntu:18.04
 
 WORKDIR /CherrypyDocker
 
-COPY gitea_deploy_key /CherrypyDocker
-COPY gitea_deploy_key.pub /CherrypyDocker
-
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 ## preesed tzdata, update package index, upgrade packages and install needed software
@@ -44,10 +41,3 @@ RUN apt-get install --assume-yes \
 
 RUN wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
 RUN python3 get-pip.py
-
-RUN mkdir -p -m 0600 ~/.ssh && \
-    ssh-keyscan -H git.mindmodeling.org >> ~/.ssh/known_hosts
-RUN cp gitea_deploy_key ~/.ssh/id_rsa
-RUN cp gitea_deploy_key.pub ~/.ssh/id_rsa.pub
-
-RUN chmod 0600 ~/.ssh/id_rsa
